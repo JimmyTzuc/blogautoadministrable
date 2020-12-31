@@ -23,7 +23,7 @@
                         <li class="mb-4">
                             <a class="flex" href="{{route('post.show',$similar)}}">
                                 <img class="w-36 h-20 object-cover object-center" src="{{Storage::url($similar->image->url)}}" alt="">
-                                <span>{{$similar->name}}</span>
+                                <span class="pl-4">{{$similar->name}}</span>
                             </a>
                         </li>
                     @endforeach

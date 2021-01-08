@@ -85,7 +85,7 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
+    'layout_fixed_sidebar' => True,
     'layout_fixed_navbar' => null,
     'layout_fixed_footer' => null,
 
@@ -246,9 +246,9 @@ return [
             'icon' => 'fab fa-fw fa-buffer',
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text' => 'ETIQUETAS',
+            'route'  => 'admin.tags.index',
+            'icon' => 'fas fa-tags',
         ],
         [
             'text'    => 'multilevel',

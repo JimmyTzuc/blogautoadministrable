@@ -61,6 +61,19 @@ class User extends Authenticatable
     //Relación uno a muchos
 
     public function posts(){
-       	return $this->hasMany(Post::class);
+        return $this->hasMany(Post::class);
+    }
+
+    public function adminlte_image(){
+        return 'https://picsum.photos/300/300';
+    }
+
+    public function adminlte_desc(){
+        return 'Administrador';
+    }
+
+    public function adminlte_profile_url()
+    {
+        return 'user/profile';
     }
 }

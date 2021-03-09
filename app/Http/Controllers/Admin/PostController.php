@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Category;
+use App\Models\Tag;
+
 class PostController extends Controller
 {
     /**
@@ -24,7 +27,11 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        // El metodo pluck toma el objeto de la coleccion de arrays que tienen los registros
+        $categories = Category::pluck('name','id');
+        $tags = Tag::all();
+        // return $categories;
+        return view('admin.posts.create', compact('categories','tags'));
     }
 
     /**

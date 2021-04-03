@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\Tag;
+use App\Http\Requests\StorePostRequest;
 
 class PostController extends Controller
 {
@@ -40,9 +41,16 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
-        //
+        $post = Post::create($request->all());
+
+        if($request->tags){
+            $post->tags()->attach($request->tags);
+        }
+
+        return redirect()->route('admin.posts.edit',$post);
+        //return "Las validaciones pasaron con exito";
     }
 
     /**

@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 
+
 class PostController extends Controller
 {
     public function index(){

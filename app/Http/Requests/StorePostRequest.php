@@ -13,7 +13,12 @@ class StorePostRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        if($this->user_id == auth()->user()->id){
+        return true;
+        }
+        else {
+            return false;
+        }
     }
 
     /**
@@ -23,8 +28,20 @@ class StorePostRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
+        $rules = [
+            'name' => 'required',
+            'slug' => 'required|unique:posts',
+            'status' => 'required|in:1,2'
         ];
+        if($this->status == 2){
+            
+            $rules = array_merge($rules,[
+                'category_id'=>'required',
+                'tags' => 'required',
+                'body' => 'required',
+                'extract' => 'required'
+            ]);
+        }
+        return $rules;
     }
 }

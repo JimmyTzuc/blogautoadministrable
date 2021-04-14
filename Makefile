@@ -12,3 +12,18 @@ copy:
 
 key:
 	php artisan key:generate
+
+env:
+	cp .env.example .env
+
+tinker:
+	php artisan tinker
+
+migrate:
+	php artisan migrate
+
+key:
+	php artisan key:generate
+
+publish:
+	php artisan vendor:publish --tag=lighthouse-schema

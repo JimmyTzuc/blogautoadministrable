@@ -18,7 +18,9 @@
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.5",
         "laravelcollective/html": "^6.2",
-        "livewire/livewire": "^2.0"
+        "livewire/livewire": "^2.0",
+        "mll-lab/laravel-graphql-playground": "^2.5",
+        "nuwave/lighthouse": "^5.3"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

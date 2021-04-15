@@ -46,7 +46,7 @@ type Tag {
     slug: String!
     color: String!
     posts: [Post!]! @belongsToMany
-    
+
 }
 type Category{
     id: ID!

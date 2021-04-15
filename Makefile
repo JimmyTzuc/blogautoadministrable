@@ -22,8 +22,9 @@ tinker:
 migrate:
 	php artisan migrate
 
-key:
-	php artisan key:generate
 
 publish:
 	php artisan vendor:publish --tag=lighthouse-schema
+
+storlink:
+	php artisan storage:link

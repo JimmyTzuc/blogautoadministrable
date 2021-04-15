@@ -13,7 +13,10 @@ type Query {
     tag(id: Int! @eq): Tag @find
     categories: [Category!]! @all
     category(id: Int! @eq): Category @find
+    images: [Image!]! @all
+    image(id: Int! @eq): Image @find
 }
+
 
 type User {
     id: ID!
@@ -32,6 +35,9 @@ type Post {
     status: Int!
     created_at: DateTime!
     user: User! @belongsTo
+    tags: [Tag!]! @belongsToMany
+    category: Category! @belongsTo
+    image: Image! @morphOne
 }
 
 type Tag {
@@ -39,7 +45,15 @@ type Tag {
     name: String!
     slug: String!
     color: String!
+    posts: [Post!]! @belongsToMany
+    
 }
 type Category{
     id: ID!
 }
+type Image{
+    id: ID!
+    imageable: Imageable! @morphTo
+    url: String!
+}
+union Imageable = Post

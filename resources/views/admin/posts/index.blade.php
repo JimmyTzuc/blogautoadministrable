@@ -8,6 +8,11 @@
 @stop
 
 @section('content')
+    @if (session('info'))
+        <div class="alert alert-danger">
+            <strong>{{session('info')}}</strong>
+        </div>
+    @endif
     @livewire('admin.posts-index')
 @stop
 

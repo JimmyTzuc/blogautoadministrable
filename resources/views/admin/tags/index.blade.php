@@ -3,14 +3,14 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    
+
     <h1>Listado de Etiquetas</h1>
 @stop
 
 @section('content')
 
     @if (session('info'))
-        <div class="alert alert-success">
+        <div class="alert alert-danger">
             <strong>{{session('info')}}</strong>
         </div>
     @endif

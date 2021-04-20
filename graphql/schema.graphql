@@ -7,13 +7,16 @@ scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date
 type Query {
     users: [User!]! @paginate(defaultCount: 10)
     user(id: ID @eq): User @find
-    posts: [Post!]! @all
+    posts: [Post!]! @all @orderBy(column: "created_at", direction: "DESC")
     post(id: Int! @eq): Post @find
     tags: [Tag!]! @all
     tag(id: Int! @eq): Tag @find
     categories: [Category!]! @all
     category(id: Int! @eq): Category @find
+    images: [Image!]! @all
+    image(id: Int! @eq): Image @find
 }
+
 
 type User {
     id: ID!
@@ -32,6 +35,9 @@ type Post {
     status: Int!
     created_at: DateTime!
     user: User! @belongsTo
+    tags: [Tag!]! @belongsToMany
+    category: Category! @belongsTo
+    image: Image! @morphOne
 }
 
 type Tag {
@@ -39,7 +45,17 @@ type Tag {
     name: String!
     slug: String!
     color: String!
+    posts: [Post!]! @belongsToMany
+
 }
 type Category{
     id: ID!
+    name: String!
+    slug: String!
 }
+type Image{
+    id: ID!
+    imageable: Imageable! @morphTo
+    url: String!
+}
+union Imageable = Post

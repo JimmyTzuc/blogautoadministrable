@@ -19,6 +19,7 @@ type Query {
 
 type Mutation {
     createTag(name: String!, slug: String!, color: String!): Tag @create
+    updateTag(id: ID,name: String, slug: String, color: String): Tag @update
 }
 
 type User {

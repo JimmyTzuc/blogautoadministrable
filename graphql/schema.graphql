@@ -17,6 +17,9 @@ type Query {
     image(id: Int! @eq): Image @find
 }
 
+type Mutation {
+    createTag(name: String!, slug: String!, color: String!): Tag @create
+}
 
 type User {
     id: ID!
@@ -59,3 +62,6 @@ type Image{
     url: String!
 }
 union Imageable = Post
+
+
+

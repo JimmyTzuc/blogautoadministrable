@@ -18,6 +18,9 @@
                 <div class="text-base text-gray-500 mt-4">
                     {!!$post->body!!}
                 </div>
+                <div class="text-base mt-4 flex justify-end">
+                    <b>Posted by: {{$post->user->name}}</b> 
+                </div>
             </div>
             <!-- CONTENIDO RELACIONADO -->
             <aside>

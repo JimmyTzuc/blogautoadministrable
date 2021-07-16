@@ -15,6 +15,9 @@
                         <h1 class="text-4xl text-white leading-8 font-bold mt-2">
                             <a href="{{route('post.show',$post)}}">{{$post->name}}</a>
                         </h1>
+                        <div>
+                            <b><i>By: {{$post->user->name}}</i></b>
+                        </div>
                     </div>
                 </article>
             @endforeach

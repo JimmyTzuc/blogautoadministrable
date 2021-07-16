@@ -1,7 +1,10 @@
 .container{
     @apply max-w-7xl mx-auto px-2;
 }
-
+.nav-options{
+    width: 110px ;
+    background-color: #2D5268;
+}
 @media(min-width:640px){
     .container{
         @apply px-6;

@@ -28,3 +28,6 @@ publish:
 
 storlink:
 	php artisan storage:link
+
+watch:
+	npm run watch

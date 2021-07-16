@@ -1,4 +1,4 @@
-<nav class="bg-gray-800" x-data="{ open: false }">
+<nav class="" x-data="{ open: false }">
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div class="relative flex items-center justify-between h-16">
             <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -16,27 +16,29 @@
                     </svg>
                 </button>
             </div>
-            <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+            <div class="flex-1 flex items-center justify-between sm:items-stretch sm:justify-between">
                 <!-- logotipo -->
                 <a href="/" class="flex-shrink-0 flex items-center">
-                    <img class="block lg:hidden h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow">
+                    <img class="block lg:hidden h-8 w-auto" src="{{ asset('img/logo.png') }}" alt="Workflow">
                     <img class="hidden lg:block h-8 w-auto" src="{{ asset('img/logo.png') }}">
                 </a>
                 <div class="hidden sm:block sm:ml-6">
-                    <div class="flex space-x-4">
+                    <div class="flex space-x-4 w-full">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                         <!-- <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a> -->
+                        <a href="/" class="hover:bg-gray-700 hover:text-white flex justify-center text-white px-3 py-2 rounded-md text-sm font-medium nav-options"  aria-current="page">Inicio</a>
                         @foreach ($categories as $category)
-                        <a href="{{route('posts.category',$category)}}" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" >{{$category->name}}</a>
+                        <a href="{{route('posts.category',$category)}}" class="hover:bg-gray-700 hover:text-white flex justify-center text-white px-3 py-2 rounded-md text-sm font-medium nav-options"  aria-current="page">{{$category->name}}</a>
                         @endforeach
                     </div>
+
                 </div>
             </div>
             @auth
             <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                
 
-                <!-- Profile dropdown -->
+
+                
                 <div class="ml-3 relative " x-data="{ open: false }">
                     <div>
                         <button x-on:click="open = true" class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-haspopup="true">
@@ -58,18 +60,18 @@
                 </div>
             </div>
             @else
-            <a href="{{route('login')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Login</a>
-            <a href="{{route('register')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Register</a @endauth </div>
+            @endauth
         </div>
+    </div>
 
 
-        <div class="sm:hidden" x-show="open" x-on:click.away="open = false">
-            <div class="px-2 pt-2 pb-3 space-y-1">
-                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                <!-- <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</a> -->
-                @foreach ($categories as $category)
-                <a href="{{route('posts.category',$category)}}" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">{{$category->name}}</a>
-                @endforeach
-            </div>
+    <div class="sm:hidden" x-show="open" x-on:click.away="open = false">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            <!-- <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</a> -->
+            @foreach ($categories as $category)
+            <a href="{{route('posts.category',$category)}}" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">{{$category->name}}</a>
+            @endforeach
         </div>
+    </div>
 </nav>

@@ -9,6 +9,7 @@
         <link rel="shortcut icon" type="image/jpg" href="{{ asset('favicons/favicon.ico') }}"/>
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+        <script src="https://kit.fontawesome.com/63e2dea6dc.js"></script>
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
